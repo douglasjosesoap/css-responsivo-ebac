@@ -1,0 +1,241 @@
+**css explicado parte a parte**
+
+**Reset e Estilos Globais**
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+- Reset de CSS: A regra * remove margens e preenchimentos padrão de todos os elementos, e define box-sizing: border-box para facilitar o controle das dimensões dos elementos.
+- Estilos Globais: Define a fonte do corpo do documento e uma cor de fundo suave para a página inteira.
+
+**Estilos do Container Principal**
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+- Container Principal: Define a largura do contêiner principal, centraliza-o com margin: 0 auto, e define uma largura máxima para manter a página legível em telas grandes.
+
+**Estilos do Header**
+
+header {
+    background-color: #3366CC;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+- Header: Define o estilo do cabeçalho, incluindo cor de fundo, cor do texto, e preenchimento.
+- Header Container: Usa Flexbox para alinhar os itens (título e navegação) horizontalmente, com espaço entre eles.
+- Título e Navegação: Adiciona margem para separar os elementos e remove a decoração padrão dos links de navegação.
+
+
+**Estilos da Seção "Sobre a Loja"**
+
+#about {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.about-text {
+    flex: 2;
+    padding: 20px;
+}
+
+
+- Seção "Sobre a Loja": Define o estilo da seção com um fundo branco, preenchimento interno, margem inferior e bordas arredondadas.
+- Container Sobre a Loja: Usa Flexbox para alinhar a imagem e o texto em linha, permitindo que os elementos se ajustem em telas menores.
+- Imagem e Texto: Define flexibilidade e preenchimento para ajustar o layout da imagem e do texto.
+
+**Estilos da Seção de Produtos**
+#products {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#products h2 {
+    border-bottom: 2px solid #3366CC;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 220px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 14px;
+    color: #666;
+}
+
+.add-to-cart {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.add-to-cart:hover {
+    background: #0056b3;
+}
+
+
+- Seção de Produtos: Define o estilo da seção de produtos similar ao da seção "Sobre a Loja", com fundo branco, preenchimento e bordas arredondadas.
+- Título de Produtos: Adiciona um estilo ao título com uma borda inferior para destaque.
+- Container de Produtos: Usa Flexbox para distribuir os produtos uniformemente, com quebra automática de linha.
+- Cartões de Produtos: Estilo para cada produto, incluindo um fundo branco, bordas arredondadas, borda, preenchimento e configuração de tamanho máximo.
+- Imagens de Produtos: Define o tamanho máximo e ajuste da imagem para cobrir o contêiner sem distorção.
+- Texto e Botão dos Produtos: Estilos para os textos e botões dos produtos, com cores, margens e alinhamento.
+
+
+**Responsividade**
+
+@media (max-width: 640px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .products-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .products-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .product {
+        max-width: 48%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-container {
+        flex-direction: row;
+    }
+
+    .products-container {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .product {
+        max-width: 220px;
+    }
+}
+
+- Responsividade Mobile (até 640px): Ajusta o layout para dispositivos móveis, mudando a direção dos elementos para coluna e centralizando os itens.
+- Responsividade Tablet (641px a 1023px): Ajusta o layout para tablets, permitindo que os itens se alinhem em linha e se distribuam uniformemente.
+- Responsividade Desktop (a partir de 1024px): Mantém a estrutura original para telas grandes.
